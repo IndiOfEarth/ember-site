@@ -1,0 +1,25 @@
+/* src/styles/globals.css */
+@import "tailwindcss";
+
+/* Optional: your brand tokens (replaces theme.extend in v3) */
+@theme {
+  --color-ember-50:  #fff6ef;
+  --color-ember-100: #ffe8d6;
+  --color-ember-200: #ffd0ad;
+  --color-ember-300: #ffb079;
+  --color-ember-400: #ff8940;
+  --color-ember-500: #ff6a1a;  /* used by bg-ember-500, text-ember-500, etc. */
+  --color-ember-600: #e04d0d;
+  --color-ember-700: #b53c0a;
+  --color-ember-800: #8a2e08;
+  --color-ember-900: #5b1f05;
+}
+
+/* Your global look & helper utilities */
+:root { color-scheme: dark; }
+html, body { @apply bg-neutral-950 text-neutral-100; }
+
+@layer components {
+  .card { @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl; }
+}
+.grid-overlay { background-size: 24px 24px; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.12) 1px, transparent 0); }
