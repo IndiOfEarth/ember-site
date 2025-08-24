@@ -4,19 +4,19 @@ export const copy = {
         tagline: "For those who demand the extraordinary.",
     },
     hero: {
-        title: "Empowering Ideas. Powered By ember.",
+        title: "EMPOWERING IDEAS, POWERED BY",
         cta: {
-        label: "Build Your Vision",
+        label: "BUILD YOUR VISION",
         href: "/discovery",
         },
     },
     nav: {
     links: [
-        { label: "VISION", href: "#vision" },
-        { label: "SERVICES", href: "#features" },
-        { label: "PROCESS", href: "#process" },
-        { label: "DISCOVERY", href: "/discovery" },
-        { label: "CONTACT", href: "#contact" },
+        { label: "Vision", href: "#vision" },
+        { label: "Services", href: "#features" },
+        { label: "Process", href: "#process" },
+        { label: "Discovery", href: "/discovery" },
+        { label: "Contact", href: "#contact" },
         ],
         network: { label: "ember network", href: "/network" }
     },

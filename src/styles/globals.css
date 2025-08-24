@@ -4,15 +4,25 @@
 /* Optional: your brand tokens (replaces theme.extend in v3) */
 @theme {
   --color-ember-50:  #fff6ef;
-  --color-ember-100: #ffe8d6;
-  --color-ember-200: #ffd0ad;
-  --color-ember-300: #ffb079;
+  --color-ember-100: #e1e1e1; /* ember white */
+  --color-ember-200: #141414; /* ember black */
+  --color-ember-300: #ffb079; /* light orange */
   --color-ember-400: #ff8940;
   --color-ember-500: #ff6a1a;  /* used by bg-ember-500, text-ember-500, etc. */
   --color-ember-600: #e04d0d;
   --color-ember-700: #b53c0a;
   --color-ember-800: #8a2e08;
-  --color-ember-900: #5b1f05;
+  --color-ember-900: #ff7f00; /* ember orange */
+}
+
+/* Map Tailwind's `font-sans` to the Next Font variable */
+@theme {
+    --font-sans: var(--font-figtree), ui-sans-serif, system-ui, -apple-system,
+                 "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji",
+                 "Segoe UI Emoji", "Segoe UI Symbol";
+
+    /* New accent family: use local brand font, then fall back to Figtree */
+    --font-brand: var(--font-brand-local), var(--font-figtree), ui-sans-serif, system-ui;
 }
 
 /* Your global look & helper utilities */

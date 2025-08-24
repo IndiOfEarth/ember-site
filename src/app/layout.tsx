@@ -1,5 +1,26 @@
 import type { Metadata } from "next"; // A Next.js type that lets you strongly type SEO/meta info
 import "../styles/globals.css"; // Brings in your global styles (Tailwind setup, dark theme, etc.) so they apply everywhere.
+import { Figtree } from "next/font/google";
+import localFont from "next/font/local";
+
+// Variable font - Figtree
+const figtree = Figtree({
+  subsets: ["latin"],
+  weight: "variable", // pulls variable wght axis (full range)
+  style: ["normal", "italic"], // include the italic variations
+  display: "swap",
+  variable: "--font-figtree", // exposes a CSS var we can use in Tailwind
+});
+
+// Custom brand font - QTFraktur
+const brand = localFont({
+  src: [
+    { path: "../fonts/Brand/QTFraktur.otf", weight: "400", style: "normal" },
+  ],
+  display: "swap",
+  preload: true, // set to false if the file is large and used rarely
+  variable: "--font-brand-local",
+});
 
 export const metadata: Metadata = {
   title: "ember — Empowering Ideas",
@@ -13,7 +34,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${figtree.variable} ${brand.variable}`}
+      suppressHydrationWarning
+    >
       <body className="antialiased selection:bg-ember-500/30 selection:text-white">
         {children}
       </body>
