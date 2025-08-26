@@ -20,12 +20,14 @@ export default function Vision() {
         </div>
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {visionCards.map(({ icon: Icon, title, text }) => (
-            <Card key={title} className="p-8 text-center">
+            <Card key={title} className="py-18 text-center">
               <div className="mx-auto w-14 h-14 rounded-2xl bg-white/10 grid place-items-center">
                 <Icon className="w-7 h-7 text-ember-400" />
               </div>
-              <h3 className="mt-4 text-2xl font-semibold">{title}</h3>
-              <p className="mt-2 text-neutral-400 text-sm leading-relaxed">
+              <h3 className="mt-4 text-2xl font-semibold bg-gradient-to-r from-ember-600 to-ember-100 to-56% bg-clip-text text-transparent">
+                {title}
+              </h3>
+              <p className="mt-8 text-ember-100/76 text-xs font-medium tracking-wider leading-relaxed uppercase">
                 {text}
               </p>
             </Card>

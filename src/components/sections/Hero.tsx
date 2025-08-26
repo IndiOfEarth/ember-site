@@ -24,7 +24,7 @@ export default function Hero() {
           {copy.brand.tagline}
         </div> */}
 
-        <h1 className="mt-6 text-3xl md:text-2xl text-ember-100 tracking-wider font-normal">
+        <h1 className="mt-6 text-3xl md:text-3xl text-ember-100 tracking-widest font-normal">
           {copy.hero.title}
         </h1>
 
