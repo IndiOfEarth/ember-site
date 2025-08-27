@@ -19,7 +19,7 @@ export default function Features() {
             YOUR <span className="font-semibold text-ember-100">BUSINESS</span>.
             YOUR <span className="font-semibold text-ember-100">BRAND</span>.
           </h2>
-          <p className="mt-8 text-xs tracking-widest font-normal text-ember-100/40">
+          <p className="mt-9 text-xs tracking-widest font-normal text-ember-100/40">
             EXPLORE OFFERINGS POWERED BY EMBER.
           </p>
         </div>
