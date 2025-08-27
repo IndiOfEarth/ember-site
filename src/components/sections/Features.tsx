@@ -2,13 +2,14 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Card from "@/components/ui/Card";
 import CTAButton from "@/components/ui/CTAButton";
+import MagicBento from "./MagicBento";
 import { featureCards } from "@/lib/data";
 
 export default function Features() {
   return (
     <section id="features" className="py-24">
       <Container>
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-normal tracking-widest text-ember-100">
             PURPOSEFUL{" "}
             <span className="font-semibold text-ember-100">DESIGN</span>,
@@ -18,11 +19,23 @@ export default function Features() {
             YOUR <span className="font-semibold text-ember-100">BUSINESS</span>.
             YOUR <span className="font-semibold text-ember-100">BRAND</span>.
           </h2>
-          <p className="mt-5 text-xs tracking-widest font-normal text-ember-100/40">
+          <p className="mt-9 text-xs tracking-widest font-normal text-ember-100/40">
             EXPLORE OFFERINGS POWERED BY EMBER.
           </p>
         </div>
-        <div className="mt-12 grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <MagicBento
+          textAutoHide={true}
+          enableStars={true}
+          enableSpotlight={true}
+          enableBorderGlow={true}
+          enableTilt={true}
+          enableMagnetism={true}
+          clickEffect={true}
+          spotlightRadius={300}
+          particleCount={12}
+          glowColor="255, 127, 0"
+        />
+        {/* <div className="mt-12 grid md:grid-cols-2 xl:grid-cols-4 gap-6">
           {featureCards.map((f) => (
             <Card key={f.title} className="overflow-hidden p-0">
               <div className="relative h-40">
@@ -42,7 +55,7 @@ export default function Features() {
               </div>
             </Card>
           ))}
-        </div>
+        </div> */}
       </Container>
     </section>
   );

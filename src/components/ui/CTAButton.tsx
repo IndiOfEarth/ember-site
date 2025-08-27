@@ -21,7 +21,7 @@ const variantStyles = {
   secondary:
     "bg-white/5 text-white border border-white/10 hover:border-ember-500/50 backdrop-blur",
   outline:
-    "bg-transparent text-white border border-white/20 hover:border-ember-500/50",
+    "bg-transparent text-ember-100 border border-white/20 hover:border-ember-500/50",
 };
 
 export default function CTAButton({

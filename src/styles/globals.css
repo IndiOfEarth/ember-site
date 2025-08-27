@@ -10,7 +10,7 @@
   --color-ember-400: #ff8940;
   --color-ember-500: #ff6a1a;  /* used by bg-ember-500, text-ember-500, etc. */
   --color-ember-600: #36373d; /* ember gray */
-  --color-ember-700: #feffff;
+  --color-ember-700: #feffff; /* for radial fill on liquid glass */
   --color-ember-800: #8a2e08;
   --color-ember-900: #ff7f00; /* ember orange */
 }
@@ -29,11 +29,35 @@
 :root { color-scheme: dark; }
 html, body { @apply bg-ember-200 text-neutral-100; }
 
+/* Define global component classes to use them in JSX */
 @layer components {
     .card { 
-        @apply bg-radial-[at_top_left] from-ember-700/15 to-ember-600/0 to-90% rounded-2xl inset-shadow-xs inset-shadow-ember-700/25 shadow-md/25;
+        @apply bg-radial-[at_top_left] from-ember-700/5 to-ember-600/0 to-90% rounded-2xl inset-shadow-sm inset-shadow-ember-700/25 shadow-md/25;
         /* @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;  */
     }
+
+    .bento-title {
+        @apply mt-4 text-2xl font-semibold bg-gradient-to-r from-ember-600 to-ember-100 to-45% bg-clip-text text-transparent;
+    }
+    
+    .bento-desc {
+        @apply text-[0.625rem] tracking-widest font-medium text-ember-100/40 uppercase;
+    }
 }
+
+@layer utilities {
+    @keyframes shine {
+      0%   { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+    .animate-shine {
+      animation: shine var(--shine-duration, 5s) linear infinite;
+    }
+  
+    @media (prefers-reduced-motion: reduce) {
+      .animate-shine { animation: none !important; }
+    }
+}
+
 .grid-overlay { background-size: 24px 24px; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.12) 1px, transparent 0); }
 

@@ -6,17 +6,20 @@ export const visionCards = [
     {
         icon: Palette,
         title: "Move With Purpose.",
-        text: "Ember crafts distinctive brand worlds - strategically positioned, visually refined, and built to resonate at every level.",
+        text: "Ember builds brand worlds that are strategic, polished, and impactful.",
+        // text: "Ember crafts distinctive brand worlds - strategically positioned, visually refined, and built to resonate at every level.",
     },
     {
         icon: Layers,
         title: "Built To Last.",
-        text: "We design and build sophisticated digital products - intuitive interfaces, modern stacks, and scalable mvps engineered for excellence.",
+        text: "We design and build digital products—intuitive, modern, and scalable.",
+        // text: "We design and build sophisticated digital products - intuitive interfaces, modern stacks, and scalable mvps engineered for excellence.",
     },
     {
         icon: Rocket,
         title: "Creativity Never Sleeps.",
-        text: "Ember launches with intention - strategic campaigns, creative visuals, and digital touchpoints designed to convert and captivate.",
+        text: "Strategic campaigns, striking visuals, and digital touchpoints that captivate.",
+        // text: "Ember launches with intention - strategic campaigns, creative visuals, and digital touchpoints designed to convert and captivate.",
     },
 ] as const;
 
