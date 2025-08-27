@@ -20,7 +20,7 @@ export default function Vision() {
         </div>
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {visionCards.map(({ icon: Icon, title, text }) => (
-            <Card key={title} className="py-18 text-center">
+            <Card key={title} className="py-12 text-center">
               <div className="mx-auto w-14 h-14 rounded-2xl bg-white/10 grid place-items-center">
                 <Icon className="w-7 h-7 text-ember-400" />
               </div>

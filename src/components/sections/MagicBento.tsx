@@ -2,6 +2,8 @@
 // Brings in react hooks and gsap
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { gsap } from "gsap";
+import CTAButton from "@/components/ui/CTAButton";
+import ShinyText from "@/components/ui/ShinyText";
 
 // DEFINES THE PROPS THAT EACH CARD OR COMPONENT CAN ACCEPT
 
@@ -10,8 +12,8 @@ import { gsap } from "gsap";
  */
 export interface BentoCardProps {
   color?: string;
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
   label?: string;
   textAutoHide?: boolean;
   disableAnimations?: boolean;
@@ -57,14 +59,14 @@ const cardData: BentoCardProps[] = [
     color: "#141414",
     title: "Create Your Online Presence",
     description:
-      "A website tailored to your company. A journey from design to code",
+      "A website tailored to your company. A journey from design to code.",
     label: "Support & Consulting",
   },
   {
     color: "#141414",
     title: "Build Seamless Digital Experiences",
     description:
-      "Ember helps you design intuitive websites & apps that function flawlessly",
+      "Ember helps you design intuitive websites & apps that function flawlessly.",
     label: "Web Design",
   },
   {
@@ -77,14 +79,14 @@ const cardData: BentoCardProps[] = [
   {
     color: "#141414",
     title: "Maintain and Evolve Your Product",
-    description: "Ongoing improvements, performance tweaks & feature updates",
+    description: "Ongoing improvements, performance tweaks & feature updates.",
     label: "App & UX Design",
   },
   {
     color: "#141414",
     title: "Innovate With Custom Software",
     description:
-      "Develop tailored software and integrations that grow with your business and streamline your operations.",
+      "Custom software and integrations that scale with your business.",
     label: "Tech Solutions",
   },
 ];
@@ -743,6 +745,16 @@ const MagicBento: React.FC<BentoProps> = ({
             text-overflow: ellipsis;
           }
           
+          .text-clamp-3 {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          
           @media (max-width: 599px) {
             .card-responsive {
               grid-template-columns: 1fr;
@@ -772,7 +784,7 @@ const MagicBento: React.FC<BentoProps> = ({
       <BentoCardGrid gridRef={gridRef}>
         <div className="card-responsive grid gap-3">
           {cardData.map((card, index) => {
-            const baseClassName = `card flex flex-col justify-start relative aspect-[4/3] min-h-[200px] w-full max-w-full p-5 border border-light rounded-[20px] font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
+            const baseClassName = `card flex flex-col justify-between relative aspect-[3/2] min-h-[320px] w-full max-w-full p-6 border border-light rounded-[20px] font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
               enableBorderGlow ? "card--border-glow" : ""
             }`;
 
@@ -799,25 +811,37 @@ const MagicBento: React.FC<BentoProps> = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
                 >
-                  <div className="card__content flex flex-col relative text-white">
-                    <h3
-                      className={`bento-title mb-2 ${
-                        textAutoHide ? "text-clamp-1" : ""
+                  <div className="card__content flex flex-col gap-2 relative text-white">
+                    {/* <h3
+                      className={`bento-title mb-2 leading-6 ${
+                        textAutoHide ? "text-clamp-2" : ""
                       }`}
                     >
                       {card.title}
-                    </h3>
+                    </h3> */}
+
+                    <ShinyText
+                      text={card.title}
+                      disabled={false}
+                      speed={2}
+                      className={`bento-title mb-2 leading-6 ${
+                        textAutoHide ? "text-clamp-2" : ""
+                      } text-balance`}
+                    />
+
                     <p
                       className={`bento-desc ${
-                        textAutoHide ? "text-clamp-2" : ""
+                        textAutoHide ? "text-clamp-3" : ""
                       }`}
                     >
                       {card.description}
                     </p>
                   </div>
-                  {/* <div className="card__header flex justify-between gap-3 relative text-white">
-                    <span className="card__label text-base">{card.label}</span>
-                  </div> */}
+                  <div className="card__header flex justify-between gap-3 relative text-white">
+                    <CTAButton href={"#process"} size="sm" variant="outline">
+                      {card.label}
+                    </CTAButton>
+                  </div>
                 </ParticleCard>
               );
             }

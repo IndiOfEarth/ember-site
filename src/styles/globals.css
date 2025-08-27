@@ -37,12 +37,27 @@ html, body { @apply bg-ember-200 text-neutral-100; }
     }
 
     .bento-title {
-        @apply mt-4 text-xl font-semibold bg-gradient-to-r from-ember-600 to-ember-100 to-45% bg-clip-text text-transparent;
+        @apply mt-4 text-2xl font-semibold bg-gradient-to-r from-ember-600 to-ember-100 to-45% bg-clip-text text-transparent;
     }
     
     .bento-desc {
-        @apply text-xs tracking-widest font-normal text-ember-100/40 uppercase;
+        @apply text-[0.625rem] tracking-widest font-medium text-ember-100/40 uppercase;
     }
 }
+
+@layer utilities {
+    @keyframes shine {
+      0%   { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+    .animate-shine {
+      animation: shine var(--shine-duration, 5s) linear infinite;
+    }
+  
+    @media (prefers-reduced-motion: reduce) {
+      .animate-shine { animation: none !important; }
+    }
+}
+
 .grid-overlay { background-size: 24px 24px; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.12) 1px, transparent 0); }
 
