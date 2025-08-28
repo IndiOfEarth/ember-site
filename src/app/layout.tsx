@@ -39,7 +39,10 @@ export default function RootLayout({
       className={`${figtree.variable} ${brand.variable}`}
       suppressHydrationWarning
     >
-      <body className="antialiased selection:bg-ember-500/30 selection:text-white">
+      <body
+        className="antialiased selection:bg-ember-500/30 selection:text-white"
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>
