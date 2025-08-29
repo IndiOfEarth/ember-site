@@ -24,6 +24,8 @@ export default function SmoothScroll({
     };
     rafId = requestAnimationFrame(raf);
 
+    requestAnimationFrame(() => ScrollTrigger.refresh());
+
     // avoid double-smoothing with native behavior
     document.documentElement.style.scrollBehavior = "auto";
 
