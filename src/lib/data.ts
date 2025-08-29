@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { Rocket, Palette, Layers, LineChart, MonitorSmartphone, Wrench } from "lucide-react";
 
 

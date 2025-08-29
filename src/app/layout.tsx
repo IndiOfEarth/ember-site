@@ -2,6 +2,7 @@ import type { Metadata } from "next"; // A Next.js type that lets you strongly t
 import "../styles/globals.css"; // Brings in your global styles (Tailwind setup, dark theme, etc.) so they apply everywhere.
 import { Figtree } from "next/font/google";
 import localFont from "next/font/local";
+import SmoothScroll from "@/components/providers/SmoothScroll";
 
 // Variable font - Figtree
 const figtree = Figtree({
@@ -43,7 +44,7 @@ export default function RootLayout({
         className="antialiased selection:bg-ember-500/30 selection:text-white"
         suppressHydrationWarning
       >
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

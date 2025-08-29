@@ -8,10 +8,10 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-8 items-stretch">
           <Card>
             <h3 className="text-2xl font-semibold">
-              Let's build something extraordinary
+              Let’s build something extraordinary
             </h3>
             <p className="mt-2 text-neutral-400">
-              Share a bit about your project and we'll reach out within one
+              Share a bit about your project and we’ll reach out within one
               business day.
             </p>
             <form className="mt-6 space-y-4">
@@ -40,10 +40,11 @@ export default function Contact() {
               </button>
             </form>
           </Card>
+
           <Card>
             <h4 className="font-semibold">Prefer a quick call?</h4>
             <p className="mt-2 text-neutral-400">
-              Jump straight into a discovery session and we'll align on scope,
+              Jump straight into a discovery session and we’ll align on scope,
               budget, and timeline.
             </p>
             <a

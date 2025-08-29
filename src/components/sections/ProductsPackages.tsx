@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Container from "@/components/ui/Container";
-import Card from "@/components/ui/Card";
 import { packages, tools } from "@/lib/data";
 
 function Tier({ name, items }: { name: string; items: readonly string[] }) {
@@ -46,7 +44,7 @@ export default function ProductsPackages() {
         <div className="mt-14">
           <h3 className="text-2xl font-semibold">Tools & Integrations</h3>
           <p className="mt-2 text-neutral-400">
-            Ember ensures you're business is powered by modern, scalable
+            Ember ensures you’re business is powered by modern, scalable
             technologies tailored to your company.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">

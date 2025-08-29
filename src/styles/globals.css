@@ -57,6 +57,23 @@ html, body { @apply bg-ember-200 text-neutral-100; }
     @media (prefers-reduced-motion: reduce) {
       .animate-shine { animation: none !important; }
     }
+
+    /* Sweep reveal for headline lines. Control with CSS var --reveal (0%..100%). */
+    .mask-reveal {
+        --reveal: 100%; /* visible by default, in case JS doesn’t run */
+        -webkit-mask-image: linear-gradient(
+          90deg,
+          #000 0 var(--reveal),
+          transparent var(--reveal) 100%
+        );
+                mask-image: linear-gradient(
+          90deg,
+          #000 0 var(--reveal),
+          transparent var(--reveal) 100%
+        );
+        -webkit-mask-size: 100% 100%;
+                mask-size: 100% 100%;
+    }
 }
 
 .grid-overlay { background-size: 24px 24px; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.12) 1px, transparent 0); }

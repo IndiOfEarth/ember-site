@@ -1,9 +1,5 @@
-import Image from "next/image";
 import Container from "@/components/ui/Container";
-import Card from "@/components/ui/Card";
-import CTAButton from "@/components/ui/CTAButton";
 import MagicBento from "./MagicBento";
-import { featureCards } from "@/lib/data";
 
 export default function Features() {
   return (
@@ -29,7 +25,7 @@ export default function Features() {
           enableSpotlight={true}
           enableBorderGlow={true}
           enableTilt={true}
-          enableMagnetism={true}
+          enableMagnetism={false}
           clickEffect={true}
           spotlightRadius={500}
           particleCount={12}
