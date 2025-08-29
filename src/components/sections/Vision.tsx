@@ -157,7 +157,7 @@ export default function Vision() {
           </h2>
           <div className="vision-underline mt-4 h-[3px] w-44 mx-auto bg-ember-500/60 rounded-full scale-x-0 origin-left" />
           <p className="mt-8 text-[0.7rem] md:text-xs tracking-[0.22em] font-medium text-ember-100/50">
-            SEE WHAT MAKES EMBER DIFFERENT TO OTHERS
+            SEE WHAT MAKES EMBER DIFFERENT.
           </p>
         </div>
 

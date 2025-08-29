@@ -43,6 +43,15 @@ html, body { @apply bg-ember-200 text-neutral-100; }
     .bento-desc {
         @apply text-[0.625rem] tracking-widest font-medium text-ember-100/40 uppercase;
     }
+
+    /* Slightly elevate cards once revealed */
+    .features-bento .card.is-revealed {
+        box-shadow: 0 10px 28px rgba(0,0,0,0.16);
+    }
+    /* If your .card has a border glow via ::after, make it a touch brighter */
+    .features-bento .card.is-revealed::after {
+        opacity: .9;
+    }
 }
 
 @layer utilities {
