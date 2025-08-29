@@ -2,6 +2,7 @@
 // Brings in react hooks and gsap
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { gsap } from "gsap";
+import Image from "next/image"; // extends the standard HTML img element
 import CTAButton from "@/components/ui/CTAButton";
 import ShinyText from "@/components/ui/ShinyText";
 
@@ -17,6 +18,15 @@ export interface BentoCardProps {
   label?: string;
   textAutoHide?: boolean;
   disableAnimations?: boolean;
+
+  // extending props for images
+  bgImage?: string; // "/images/branding.jpg"  (put file in /public/images)
+  bgPos?: string; // CSS object-position, e.g. "center 30%" or "left top"
+  bgOpacity?: number; // 0..1 (e.g. 0.25)
+  bgFit?: "cover" | "contain" | "fill" | "none" | "scale-down"; // default cover
+  bgBlendClass?: string; // e.g. "mix-blend-luminosity" | "mix-blend-overlay"
+  bgOverlayClass?: string; // e.g. "bg-black/30" to dim for readability
+  bgBoxClass?: string; // for position and scale
 }
 
 /**
@@ -54,20 +64,41 @@ const cardData: BentoCardProps[] = [
     description:
       "Create a recognisable brand where UI/UX designs meet your vision.",
     label: "Branding Services",
+    bgImage: "/images/bentoimg-branding.svg",
+    bgPos: "right top",
+    bgOpacity: 0.28,
+    bgFit: "contain",
+    bgBlendClass: "mix-blend-overlay",
+    bgOverlayClass: "bg-black/30",
+    bgBoxClass: "sm:translate-y-[-2rem] md:translate-y-[-4rem]",
   },
   {
     color: "#141414",
     title: "Create Your Online Presence",
     description:
       "A website tailored to your company. A journey from design to code.",
-    label: "Support & Consulting",
+    label: "Web Design",
+    bgImage: "/images/bentoimg-web.svg",
+    bgPos: "center 40%",
+    bgFit: "contain",
+    bgOpacity: 0.88,
+    bgBlendClass: "mix-blend-overlay",
+    bgOverlayClass: "bg-black/30",
+    bgBoxClass: "scale-90 translate-y-[1rem]",
   },
   {
     color: "#141414",
     title: "Build Seamless Digital Experiences",
     description:
       "Ember helps you design intuitive websites & apps that function flawlessly.",
-    label: "Web Design",
+    label: "App & UX Design",
+    bgImage: "/images/bentoimg-hands.svg",
+    bgPos: "center 40%",
+    bgFit: "contain",
+    bgOpacity: 0.58,
+    bgBlendClass: "mix-blend-overlay",
+    bgOverlayClass: "bg-black/30",
+    bgBoxClass: "scale-102 translate-y-[1rem]",
   },
   {
     color: "#141414",
@@ -75,12 +106,26 @@ const cardData: BentoCardProps[] = [
     description:
       "Turn visibility into growth with targeted marketing & social strategies.",
     label: "Marketing",
+    bgImage: "/images/bentoimg-marketing.svg",
+    bgPos: "center",
+    bgOpacity: 0.88,
+    bgFit: "contain",
+    bgBlendClass: "mix-blend-overlay",
+    bgOverlayClass: "bg-black/30",
+    bgBoxClass: "md:translate-y-[2rem]",
   },
   {
     color: "#141414",
     title: "Maintain and Evolve Your Product",
     description: "Ongoing improvements, performance tweaks & feature updates.",
-    label: "App & UX Design",
+    label: "Support & Consulting",
+    bgImage: "/images/bentoimg-support.svg",
+    bgPos: "center",
+    bgOpacity: 0.88,
+    bgFit: "contain",
+    bgBlendClass: "mix-blend-overlay",
+    bgOverlayClass: "bg-black/30",
+    bgBoxClass: "md:translate-y-[2rem]",
   },
   {
     color: "#141414",
@@ -88,6 +133,13 @@ const cardData: BentoCardProps[] = [
     description:
       "Custom software and integrations that scale with your business.",
     label: "Tech Solutions",
+    bgImage: "/images/bentoimg-custom.svg",
+    bgPos: "center",
+    bgOpacity: 0.88,
+    bgFit: "contain",
+    bgBlendClass: "mix-blend-overlay",
+    bgOverlayClass: "bg-black/30",
+    bgBoxClass: "md:translate-y-[5rem]",
   },
 ];
 
@@ -784,7 +836,7 @@ const MagicBento: React.FC<BentoProps> = ({
       <BentoCardGrid gridRef={gridRef}>
         <div className="card-responsive grid gap-3">
           {cardData.map((card, index) => {
-            const baseClassName = `card flex flex-col justify-between relative aspect-[3/2] min-h-[320px] w-full max-w-full p-6 border border-light rounded-[20px] font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
+            const baseClassName = `card flex flex-col justify-between relative aspect-[3/2] min-h-[320px] w-full max-w-full p-6 rounded-[20px] font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
               enableBorderGlow ? "card--border-glow" : ""
             }`;
 
@@ -811,24 +863,42 @@ const MagicBento: React.FC<BentoProps> = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
                 >
-                  <div className="card__content flex flex-col gap-2 relative text-white">
-                    {/* <h3
-                      className={`bento-title mb-2 leading-6 ${
-                        textAutoHide ? "text-clamp-2" : ""
-                      }`}
-                    >
-                      {card.title}
-                    </h3> */}
+                  {/* Rendering the background image between card and the text */}
+                  {card.bgImage && (
+                    <div className={`absolute inset-0 z-0 pointer-events-none`}>
+                      <Image
+                        src={card.bgImage}
+                        alt=""
+                        fill
+                        priority={false}
+                        className={`object-${card.bgFit ?? "cover"} ${
+                          card.bgBlendClass ?? ""
+                        } ${card.bgBoxClass ?? ""}`}
+                        style={{
+                          objectPosition: card.bgPos ?? "center",
+                          opacity: card.bgOpacity ?? 0.25,
+                        }}
+                      />
+                      {/* optional dimmer to keep text readable */}
+                      {card.bgOverlayClass && (
+                        <div
+                          className={`absolute inset-0 ${card.bgOverlayClass}`}
+                        />
+                      )}
+                    </div>
+                  )}
 
+                  <div className="card__content flex flex-col gap-2 relative text-white">
+                    {/* Glowing title */}
                     <ShinyText
                       text={card.title}
                       disabled={false}
                       speed={2}
-                      className={`bento-title mb-2 leading-6 ${
+                      className={`bento-title mb-2 leading-7 ${
                         textAutoHide ? "text-clamp-2" : ""
                       } text-balance`}
                     />
-
+                    {/* Description for each card */}
                     <p
                       className={`bento-desc ${
                         textAutoHide ? "text-clamp-3" : ""

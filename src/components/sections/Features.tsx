@@ -31,7 +31,7 @@ export default function Features() {
           enableTilt={true}
           enableMagnetism={true}
           clickEffect={true}
-          spotlightRadius={300}
+          spotlightRadius={500}
           particleCount={12}
           glowColor="255, 127, 0"
         />
