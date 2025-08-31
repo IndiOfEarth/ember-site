@@ -1,4 +1,4 @@
-import { Rocket, Palette, Layers, LineChart, MonitorSmartphone, Wrench } from "lucide-react";
+import { Rocket, Palette, Layers, LineChart, MonitorSmartphone, Wrench, Dock, CirclePlay, Fingerprint } from "lucide-react";
 
 
 export const visionCards = [
@@ -6,22 +6,51 @@ export const visionCards = [
         icon: Palette,
         title: "Move With Purpose.",
         text: "Ember builds brand worlds that are strategic, polished, and impactful.",
+        img: "/images/testimage4.jpg"
         // text: "Ember crafts distinctive brand worlds - strategically positioned, visually refined, and built to resonate at every level.",
     },
     {
         icon: Layers,
         title: "Built To Last.",
         text: "We design and build digital products—intuitive, modern, and scalable.",
+        img: "/images/testimage7.jpg"
         // text: "We design and build sophisticated digital products - intuitive interfaces, modern stacks, and scalable mvps engineered for excellence.",
     },
     {
         icon: Rocket,
         title: "Creativity Never Sleeps.",
         text: "Strategic campaigns, striking visuals, and digital touchpoints that captivate.",
+        img: "/images/emberheroimage.png"
         // text: "Ember launches with intention - strategic campaigns, creative visuals, and digital touchpoints designed to convert and captivate.",
     },
 ] as const;
 
+export const productCards = [
+    {
+        icon: Palette,
+        title: "Branding & Marketing",
+        text: "Craft a cohesive identity—logo to voice—that builds trust and resonates. Market to new and existing audiences.",
+        img: "/images/testimage4.jpg"
+    },
+    {
+        icon: Dock,
+        title: "Web & App Design",
+        text: "Blazing-fast websites tailored to your brand. Elegant, intuitive experiences that turn ideas into impact.",
+        img: "/images/testimage4.jpg"
+    },
+    {
+        icon: CirclePlay,
+        title: "MVP & Launch",
+        text: "From idea to MVP—and beyond. Whether a store, product, or service, launch faster with Ember.",
+        img: "/images/testimage4.jpg"
+    },
+    {
+        icon: Fingerprint,
+        title: "UX/UI Overhauls",
+        text: "Refine how users engage with your product. Scalable, experience-led design built for the future.",
+        img: "/images/testimage4.jpg"
+    }
+] as const;
 
 export const featureCards = [
     {

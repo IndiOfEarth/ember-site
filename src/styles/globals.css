@@ -55,10 +55,6 @@ html, body { @apply bg-ember-200 text-neutral-100; }
 }
 
 @layer utilities {
-    @keyframes shine {
-      0%   { background-position: 100% 0; }
-      100% { background-position: -100% 0; }
-    }
     .animate-shine {
       animation: shine var(--shine-duration, 5s) linear infinite;
     }
@@ -82,8 +78,39 @@ html, body { @apply bg-ember-200 text-neutral-100; }
         );
         -webkit-mask-size: 100% 100%;
                 mask-size: 100% 100%;
+
     }
 }
 
 .grid-overlay { background-size: 24px 24px; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.12) 1px, transparent 0); }
 
+/* Premium, accessible focus outline for any .focus-ring element */
+.focus-ring:focus-visible {
+    outline: 2px solid rgba(236, 204, 153, .55);
+    outline-offset: 3px;
+    border-radius: 1.2rem;
+  }
+  
+  /* (Optional) Typographic tone if you’re using Figtree variable font */
+  .typ-luxe {
+    font-variation-settings: "wght" 520, "opsz" 14;
+    letter-spacing: 0.01em;
+  }
+  .typ-meta {
+    font-variation-settings: "wght" 480, "opsz" 12;
+    letter-spacing: 0.26em;
+  }
+
+  /* globals.css */
+.clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
