@@ -1,39 +1,35 @@
+// app/SmoothScrollProvider.tsx
 "use client";
-import { useEffect } from "react";
+import { PropsWithChildren, useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+export default function SmoothScroll({ children }: PropsWithChildren) {
+  const lenisRef = useRef<Lenis | null>(null);
+  const rafRef = useRef<number | null>(null);
 
-export default function SmoothScroll({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
   useEffect(() => {
-    const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    if (lenisRef.current) return; // guard StrictMode double-mounts
 
-    // keep GSAP in sync with Lenis
-    lenis.on("scroll", ScrollTrigger.update);
+    const lenis = new Lenis({
+      lerp: 0.08, // lower = smoother/laggier, higher = snappier
+      smoothWheel: true,
+      syncTouch: true,
+      wheelEventsTarget: window,
+    });
+    lenisRef.current = lenis;
 
-    let rafId = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
+    const raf = (t: number) => {
+      lenis.raf(t);
+      rafRef.current = requestAnimationFrame(raf);
     };
-    rafId = requestAnimationFrame(raf);
-
-    requestAnimationFrame(() => ScrollTrigger.refresh());
-
-    // avoid double-smoothing with native behavior
-    document.documentElement.style.scrollBehavior = "auto";
+    rafRef.current = requestAnimationFrame(raf);
 
     return () => {
-      cancelAnimationFrame(rafId);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
 
-  return <>{children}</>;
+  return children as any;
 }

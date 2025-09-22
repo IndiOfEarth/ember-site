@@ -3,8 +3,8 @@ import Hero from "@/components/sections/Hero";
 import Vision from "@/components/sections/Vision";
 import Features from "@/components/sections/Features";
 import SectionBreak from "@/components/sections/SectionBreak";
-import Process from "@/components/sections/Process";
-import ProductsPackages from "@/components/sections/ProductsPackages";
+// import Process from "@/components/sections/Process";
+// import ProductsPackages from "@/components/sections/ProductsPackages";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 
@@ -16,8 +16,8 @@ export default function Page() {
       <Vision />
       <Features />
       <SectionBreak />
-      <Process />
-      <ProductsPackages />
+      {/* <Process /> */}
+      {/* <ProductsPackages /> */}
       <Contact />
       <Footer />
     </main>

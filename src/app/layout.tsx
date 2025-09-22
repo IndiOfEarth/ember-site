@@ -44,8 +44,8 @@ export default function RootLayout({
         className="antialiased selection:bg-ember-500/30 selection:text-white"
         suppressHydrationWarning
       >
-        {/* <SmoothScroll>{children}</SmoothScroll> */}
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
+        {/* {children} */}
       </body>
     </html>
   );

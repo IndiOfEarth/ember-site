@@ -1,6 +1,7 @@
 /* src/styles/globals.css */
 @import "tailwindcss";
 
+
 /* Optional: your brand tokens (replaces theme.extend in v3) */
 @theme {
   --color-ember-50:  #fff6ef;
@@ -26,7 +27,9 @@
 }
 
 /* Your global look & helper utilities */
-:root { color-scheme: dark; }
+:root { 
+  color-scheme: dark; 
+}
 html, body { @apply bg-ember-200 text-neutral-100; }
 
 /* Define global component classes to use them in JSX */
@@ -101,15 +104,15 @@ html, body { @apply bg-ember-200 text-neutral-100; }
     border-radius: 1.2rem;
   }
   
-  /* (Optional) Typographic tone if you’re using Figtree variable font */
-  .typ-luxe {
+/* (Optional) Typographic tone if you’re using Figtree variable font */
+.typ-luxe {
     font-variation-settings: "wght" 520, "opsz" 14;
     letter-spacing: 0.01em;
-  }
-  .typ-meta {
+}
+.typ-meta {
     font-variation-settings: "wght" 480, "opsz" 12;
     letter-spacing: 0.26em;
-  }
+}
 
   /* globals.css */
 .clamp-2 {
@@ -117,10 +120,11 @@ html, body { @apply bg-ember-200 text-neutral-100; }
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-  }
-  .clamp-3 {
+}
+.clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-  }
+}
+

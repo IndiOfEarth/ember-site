@@ -1,0 +1,108 @@
+/* Wrap the whole carousel in this to scope the CSS var */
+.wrapper {
+    --neon: 255 153 0; /* orange glow */
+  }
+  
+  /* Unique keyframes for the neon pulse */
+  @keyframes neonPulse__v1 {
+    0% {
+      box-shadow: 0 0 0.0rem rgba(var(--neon) / 0.2),
+        0 0 0.0rem rgba(var(--neon) / 0.15) inset;
+    }
+    50% {
+      box-shadow: 0 0 1.2rem rgba(var(--neon) / 0.55),
+        0 0 0.6rem rgba(var(--neon) / 0.35) inset;
+    }
+    100% {
+      box-shadow: 0 0 0.0rem rgba(var(--neon) / 0.2),
+        0 0 0.0rem rgba(var(--neon) / 0.15) inset;
+    }
+  }
+  
+  /* Neon card container */
+  .card {
+    position: relative;
+    border-radius: 1rem;
+    background: radial-gradient(
+      120% 140% at 30% 20%,
+      rgba(255, 255, 255, 0.06),
+      rgba(0, 0, 0, 0.35) 60%,
+      rgba(0, 0, 0, 0.65)
+    );
+    outline: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+    transition: transform 300ms ease, opacity 300ms ease, filter 300ms ease;
+    will-change: transform, filter;
+  
+    /* --active (0 or 1) is set inline from React */
+    transform: translateZ(0) scale(calc(0.92 + (var(--active, 0) * 0.10)));
+    filter: brightness(calc(0.7 + (var(--active, 0) * 0.6)))
+      saturate(calc(0.9 + (var(--active, 0) * 0.4)));
+  }
+  
+  /* Neon glow stroke */
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow:
+      0 0 0 2px rgba(var(--neon) / calc(0.10 + var(--active, 0) * 0.25)),
+      0 0 calc(10px + 10px * var(--active, 0))
+        rgba(var(--neon) / calc(0.20 + var(--active, 0) * 0.55)),
+      inset 0 0 calc(6px + 6px * var(--active, 0))
+        rgba(var(--neon) / calc(0.10 + var(--active, 0) * 0.45));
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .card[data-pulse="true"]::before {
+      animation: neonPulse__v1 2.6s ease-in-out infinite;
+    }
+  }
+  
+  /* Glow under the carousel */
+  .runway {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 0.75rem;
+    height: 12px;
+    border-radius: 9999px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.5),
+      transparent
+    );
+    filter: blur(8px) opacity(0.35);
+    pointer-events: none;
+  }
+    
+  /* Smooth, stable viewport */
+.viewport {
+    scroll-snap-type: x proximity;   /* was: mandatory */
+    overscroll-behavior-x: contain;  /* prevent parent scroll tug-of-war */
+    scrollbar-gutter: stable both-edges;
+    touch-action: pan-x;
+    cursor: grab;
+  }
+  
+  /* Hide scrollbars across browsers */
+.viewport::-webkit-scrollbar {
+    display: none;           /* Chrome/Safari/WebKit */
+}
+
+.viewport {
+    -ms-overflow-style: none; /* IE 10+ */
+    scrollbar-width: none;    /* Firefox */
+}
+
+/* While dragging with mouse */
+.dragging {
+    cursor: grabbing;
+    user-select: none;
+}
+
+/* disable snapping while dragging */
+.snapOff { scroll-snap-type: none; }

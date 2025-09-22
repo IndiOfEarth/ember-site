@@ -1,4 +1,4 @@
-import { Rocket, Palette, Layers, LineChart, MonitorSmartphone, Wrench, Dock, CirclePlay, Fingerprint } from "lucide-react";
+import { Rocket, Palette, Layers, LineChart, MonitorSmartphone, Wrench, Dock, CirclePlay, Fingerprint, Compass } from "lucide-react";
 
 
 export const visionCards = [
@@ -28,26 +28,26 @@ export const visionCards = [
 export const productCards = [
     {
         icon: Palette,
-        title: "Branding & Marketing",
-        text: "Craft a cohesive identity—logo to voice—that builds trust and resonates. Market to new and existing audiences.",
+        title: "Brand Identity Architecture",
+        text: "Craft timeless identities that inspire trust and admiration. From logo to voice, Ember shapes brands that endure.",
         img: "/images/testimage4.jpg"
     },
     {
         icon: Dock,
-        title: "Web & App Design",
-        text: "Blazing-fast websites tailored to your brand. Elegant, intuitive experiences that turn ideas into impact.",
+        title: "Digital Experience Design",
+        text: "Sophisticated digital experiences—fast, intuitive, and beautifully tailored to your vision.",
         img: "/images/testimage4.jpg"
     },
     {
         icon: CirclePlay,
-        title: "MVP & Launch",
+        title: "Venture Launch & Acceleration",
         text: "From idea to MVP—and beyond. Whether a store, product, or service, launch faster with Ember.",
         img: "/images/testimage4.jpg"
     },
     {
         icon: Fingerprint,
-        title: "UX/UI Overhauls",
-        text: "Refine how users engage with your product. Scalable, experience-led design built for the future.",
+        title: "User Experience Transformation",
+        text: "Elevate every interaction. Ember refines digital journeys with design that feels effortless and future-ready.",
         img: "/images/testimage4.jpg"
     }
 ] as const;
@@ -111,25 +111,79 @@ export const packages = {
     branding: {
         line: "Branding & Marketing Packages",
         tiers: [
-            { name: "Spark", items: ["Logo", "Colours", "Basic style guide", "Social profiles"] },
-            { name: "Flame", items: ["Extended brand guide", "Social templates", "Business cards", "Messaging"] },
-            { name: "Blaze", items: ["Full brand system", "Creative direction", "Marketing assets", "Product mockups"] },
+            {   name: "Spark",
+                description: "Launch With Clarity.",
+                items: ["Logo Suite", "Core Colour Palette", "Style Guide Essentials", "Social Media Profile Setup", "One-Page Brand Reference Guide"] 
+            },
+            {   name: "Flame", 
+                description: "Expand Your Brand.",
+                items: ["Everything in Spark","Extended Style Guide (Tone, Imagery)", "Social Media Template Set", "Business Cards & Stationery", "Brand Messaging Framework"] 
+            },
+            // NOT READY FOR THIS YET
+            // {   name: "Blaze", 
+            //     description: "Scale with impact.",
+            //     items: ["Everything in Flame", "Full Brand System Documentation", "Custom Iconography & Illustration", "Creative Direction Guidelines", "Campaign-Ready Marketing Assets", "Product Mockups"] 
+            // },
+            {
+                name: "Coming Soon.",
+                description: "A New Tier Awaits...",
+                items: ["Coming Soon."]
+            }
         ],
     },
     webapp: {
         line: "Web & App Packages",
         tiers: [
-            { name: "Launch", items: ["1‑page site", "Contact form", "Basic SEO"] },
-            { name: "Build", items: ["Up to 10 pages", "Blog/CMS", "Analytics", "Intermediate SEO"] },
-            { name: "Scale", items: ["Unlimited pages", "Advanced UX", "E‑commerce/Membership", "Integrations", "Perf & a11y"] },
+            {   
+                name: "Launch",
+                description: "Launch With Confidence.", 
+                items: [
+                    "Landing Page Design & Build",
+                    "Essential Web UI & UX",
+                    "Mobile Responsive Layout",
+                    "Contact Form Integration",
+                    "Basic SEO Setup (titles, metadata)",
+                    "Google Analytics Integration",
+                ],
+            },
+            {   
+                name: "Build", 
+                description: "A Professional Digital Home.",
+                items: [
+                    "Everything in Foundation",
+                    "Up to 10 Custom Pages",
+                    "App UX Foundations (wireframes, flows)",
+                    "Blog / CMS Integration",
+                    "Enhanced Analytics Dashboard",
+                    "Intermediate SEO Optimisation",
+                ],
+            },
+            // NOT READY FOR THIS YET
+            // {   
+            //     name: "Scale", 
+            //     description: "Expand With Power.",
+            //     items: [
+            //         "Everything in Growth",
+            //         "Unlimited Pages & Scalable CMS",
+            //         "Advanced UX & Interaction Design",
+            //         "E-commerce or Membership Functionality",
+            //         "Integrations (CRM, Bookings, Payments)",
+            //         "Performance Optimisation & Accessibility",
+            //     ],
+            // },
+            {
+                name: "Coming Soon.",
+                description: "A New Tier Awaits...",
+                items: ["Coming Soon."]
+            }
         ],
     },
     retainers: {
         line: "Marketing & Growth Retainers",
         tiers: [
-            { name: "Starter Retainer", items: ["4–6 content pieces", "1 ad campaign", "Basic analytics"] },
-            { name: "Growth Retainer", items: ["8–10 content pieces", "2 ad campaigns", "A/B testing", "SEO updates"] },
-            { name: "Scale Retainer", items: ["Full strategy", "Multi‑platform campaigns", "CRO", "Email funnels", "Quarterly reporting"] },
+            { name: "Starter", items: ["4–6 content pieces", "1 ad campaign", "Basic analytics"] },
+            { name: "Growth", items: ["8–10 content pieces", "2 ad campaigns", "A/B testing", "SEO updates"] },
+            { name: "Scale", items: ["Full strategy", "Multi‑platform campaigns", "CRO", "Email funnels", "Quarterly reporting"] },
         ],
     },
 } as const;
